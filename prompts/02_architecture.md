@@ -41,17 +41,19 @@ emoji-recommender-extension/
 | 컬럼명 | 타입 | 설명 |
 | :--- | :--- | :--- |
 | emoji_id | TEXT | 이모지 유니코드 |
-| emoji | TEXT |   실제 이모지 문자 |
 | description | TEXT | 이모지에 대한 설명 |
-| embedding | VECTOR | 텍스트 임베딩 벡터 |
+| version | Int2 | 이모지 version |
+| version | FLOAT | 이모지 버전 (예: 0.6, 12.1) |
+| embedding | VECTOR(768) | 텍스트 임베딩 벡터 (Gemini text-embedding-004: 768차원) |
 
-### user_preferences
+### user_metadata
 | 컬럼명 | 타입 | 설명 |
 | :--- | :--- | :--- |
-| user_id | TEXT | 사용자를 식별하는 고유 ID (PK, 크롬 확장 프로그램 로컬 Storage에서 생성 및 관리) |
-| usage_count |	INT | 이모지 추천 기능 호출 횟수 (10회 호출 시 리뷰 팝업 트리거에 사용) |
+| user_id | UUID | Google UID |
 | has_reviewed | BOOLEAN |	리뷰를 작성했는지 여부 (리뷰 작성 시 팝업창을 띄우지 않음) | 
-| custom_hotkey | TEXT | 사용자가 설정한 핫키 조합 (예: 'Control+Shift+E') |	
+| custom_hotkey | TEXT | 사용자가 설정한 핫키 조합 (예: 'Control+Shift+E') |
+| usage_count |	INT | 이모지 추천 기능 호출 횟수 (10회 호출 시 리뷰 팝업 트리거에 사용) |
+	
 
 ### reviews
 | 컬럼명 | 타입 | 설명 | 
@@ -61,7 +63,6 @@ emoji-recommender-extension/
 | rating | INT | 별점 (1~5) | 
 | comment | TEXT | 리뷰 내용 | 
 | created_at | TIMESTAMP | 리뷰 작성 시간 |
-
 
 ## API 명세 (필요시)
 
