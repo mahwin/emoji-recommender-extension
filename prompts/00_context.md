@@ -1,4 +1,5 @@
 # 프로젝트 컨텍스트 (Project Context)
+- 항상 한국어로 말해줘
 
 ## 프로젝트 개요
 - 프로젝트 이름 : Emoji Recommender Extension
@@ -9,7 +10,7 @@
 
 ## 기술 스택
 - 프론트 : Next.js를 사용하되 static 하게 배포할 예정
-- 백엔드 : 없음
+- 백엔드 : supabase의 Edge Function 활용
 - db : Supabase
 
 ## 디자인 가이드라인

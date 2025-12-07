@@ -37,14 +37,13 @@ emoji-recommender-extension/
 
 ## 데이터 구조
 
-### emojis
+### emojis_minilm (Active)
 | 컬럼명 | 타입 | 설명 |
 | :--- | :--- | :--- |
-| emoji_id | TEXT | 이모지 유니코드 |
+| emoji_id | TEXT | 이모지 유니코드 (PK) |
 | description | TEXT | 이모지에 대한 설명 |
-| version | Int2 | 이모지 version |
-| version | FLOAT | 이모지 버전 (예: 0.6, 12.1) |
-| embedding | VECTOR(768) | 텍스트 임베딩 벡터 (Gemini text-embedding-004: 768차원) |
+| version | FLOAT | 이모지 버전 |
+| embedding | VECTOR(384) | all-MiniLM-L6-v2 임베딩 (Client-side) |
 
 ### user_metadata
 | 컬럼명 | 타입 | 설명 |
@@ -53,7 +52,6 @@ emoji-recommender-extension/
 | has_reviewed | BOOLEAN |	리뷰를 작성했는지 여부 (리뷰 작성 시 팝업창을 띄우지 않음) | 
 | custom_hotkey | TEXT | 사용자가 설정한 핫키 조합 (예: 'Control+Shift+E') |
 | usage_count |	INT | 이모지 추천 기능 호출 횟수 (10회 호출 시 리뷰 팝업 트리거에 사용) |
-	
 
 ### reviews
 | 컬럼명 | 타입 | 설명 | 
